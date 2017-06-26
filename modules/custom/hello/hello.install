@@ -1,0 +1,63 @@
+<?php
+
+function hello() {
+
+  $schema['hello_node_history'] = array(
+
+    'description' => 'The base table for nodes.',
+    'fields' => array(
+      'hid' => array(
+        'type' => 'serial',
+        'not null' => TRUE,
+      ),
+      'nid' => array(
+        'type' => 'int',
+        'length' => 10,
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ),
+      'update_time' => array(
+        'type' => 'int',
+        'length' => 11,
+        'not null' => TRUE,
+      ),
+     'uid' => array(
+        'type' => 'int',
+        'length' => 10,
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+   )
+
+    ),
+
+    'primary key' => array('hid'),
+  );
+  return $schema;
+}
+
+/**
+*Implements hook_update
+*/
+
+use Drupal\Core\Database\Database;
+
+
+/**
+*Add a 'uid' field to hello_node_history table.
+*/
+
+
+function hello_update_8100() {
+  $field_spec = array(
+    'type'        => 'int',
+    'length'      => 10,
+    'unsigned'    => TRUE,
+    'not null'    => TRUE,
+  );
+
+
+  $schema = Database::getConnection()->schema();
+  $schema->addField('hello_node_history', 'uid', $field_spec);
+
+}
+

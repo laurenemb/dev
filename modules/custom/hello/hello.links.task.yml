@@ -1,0 +1,24 @@
+hello.task1:
+  title: 'Welcome'
+  route_name: hello.hello
+  base_route: hello.hello
+
+hello.task2:
+  title: 'NodeList'
+  route_name: hello.nodelist
+  base_route: hello.hello
+
+hello.node.node_history:
+  title: 'Update history'
+  route_name: hello.node_history
+  base_route: entity.node.canonical
+
+hello.task3:
+  title: 'Calculator'
+  route_name: hello.form
+  base_route: hello.hello
+
+hello.admin.appearance.block-color:
+  title: 'Block color'
+  route_name: hello.color
+  base_route: system.themes_page

@@ -1,0 +1,37 @@
+<?php
+
+function annonce_schema() {
+
+  $schema['annonce_history'] = array(
+
+    'description' => 'The base table for nodes.',
+    'fields' => array(
+      'ahid' => array(
+        'type' => 'serial',
+        'not null' => TRUE,
+      ),
+      'uid' => array(
+        'type' => 'int',
+        'length' => 10,
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ),
+      'aid' => array(
+        'type' => 'int',
+        'length' => 10,
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ),
+     'date' => array(
+        'type' => 'int',
+        'length' => 11,
+        'not null' => TRUE,
+      ),
+
+    ),
+
+    'primary key' => array('ahid'),
+  );
+  return $schema;
+}
+

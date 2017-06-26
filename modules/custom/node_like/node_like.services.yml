@@ -1,0 +1,4 @@
+services:
+  plugin.manager.node_like:
+    class: Drupal\node_like\ReusableFormsManager
+    parent: default_plugin_manager

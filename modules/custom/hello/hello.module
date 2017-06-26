@@ -1,0 +1,88 @@
+<?php
+
+
+// Implements hook_cron();
+function hello_cron() {
+	drupal_set_message (t('Error !!!!!'), 'warning');
+}
+
+// Implements hook_user_login();
+
+function hello_user_login($account) {
+	drupal_set_message (t('Welcome dear %name !', array('%name' =>$account->getAccountName())));
+}
+
+
+use Drupal\node\NodeInterface;
+
+function hello_node_update(NodeInterface $node) {
+	$database = \Drupal::database();
+	//kint($node);
+	//exit();
+
+	$database->insert('hello_node_history')
+		 ->fields(array(
+	    'nid' => $node->id(), 
+	    'uid' => $node->getRevisionUserId(), 
+	    'update_time' => time(),
+ 	))
+	->execute();
+  	
+
+}
+
+//getCurrentUser()->
+
+function hello_preprocess_block(array &$variables) {
+	$class = \Drupal::config('hello.config')->get('color');
+	$variables['attributes']['class'][] = $class;
+}
+
+function hello_page_attachments(array &$page) {
+	$page['#attached']['library'][] = 'hello/base';
+}
+
+
+function hello_theme($existing, $type, $theme, $path) {
+	return array(
+		'hello_node_history' => array(
+			'template' => 'hello-node-history',
+			'variables' => array(
+				'node' => NULL,
+				'count' => NULL,
+			),
+		),
+	);
+}
+
+
+function hello_form_alter(array &$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+
+	if($form_id == 'contact_message_feedback_form'){
+		//kint($form);
+		$form['phone'] = array(
+		  '#type' => 'tel',
+		  '#title' => t('Téléphone'),
+		);
+
+		$form['actions']['submit']['#value'] = t('Send now');
+
+		$form['name']['#weight'] = 100;
+		$form['mail']['#weight'] = 200;
+		$form['phone']['#weight'] = 300;
+		$form['message']['#weight'] = 400;
+		$form['actions']['#weight'] = 500;
+
+		unset($form['#process']);
+
+		$form['subject'] ['#access'] = FALSE;
+
+	}
+}
+
+
+
+
+
+
+

@@ -1,0 +1,48 @@
+add annonce entities:
+  title: 'Create new Annonce entities'
+
+administer annonce entities:
+  title: 'Administer Annonce entities'
+  description: 'Allow to access the administration form to configure Annonce entities.'
+  restrict access: true
+
+delete annonce entities:
+  title: 'Delete Annonce entities'
+
+edit annonce entities:
+  title: 'Edit Annonce entities'
+
+access annonce overview:
+  title: 'Access the Annonce overview page'
+
+view published annonce entities:
+  title: 'View published Annonce entities'
+
+view unpublished annonce entities:
+  title: 'View unpublished Annonce entities'
+
+edit own annonce entities:
+  title: 'Delete own Annonce entities'
+
+delete own annonce entities:
+  title: 'Delete own Annonce entities'
+ 
+administer default entity entities:
+  title: 'Administer Default entity entities'
+  description: 'Allow to access the administration form to configure Default entity entities.'
+  restrict access: true
+
+delete default entity entities:
+  title: 'Delete Default entity entities'
+
+edit default entity entities:
+  title: 'Edit Default entity entities'
+
+access default entity overview:
+  title: 'Access the Default entity overview page'
+
+view published default entity entities:
+  title: 'View published Default entity entities'
+
+view unpublished default entity entities:
+  title: 'View unpublished Default entity entities'

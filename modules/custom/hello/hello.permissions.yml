@@ -1,0 +1,9 @@
+access hello:
+  description: 'My first permission.'
+  title: 'Access hello'
+  restrict access: TRUE
+
+administrer hello:
+  description: 'My first permission.'
+  title: 'Administrer hello'
+  restrict access: TRUE

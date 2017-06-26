@@ -1,0 +1,13 @@
+<?php
+
+function annonce_theme() {
+	return ['annonce' => [ 
+		'file' => 'annonce.page.inc',
+		'render element' => 'elements',
+	]];
+}
+
+function annonce_theme_suggestions_annonces(array $variables) {
+	$suggestions[] = 'annonces__' . $variables['elements']['#view_mode'];
+	return $sugestion;
+}
